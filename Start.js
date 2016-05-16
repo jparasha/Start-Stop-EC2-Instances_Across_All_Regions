@@ -77,9 +77,9 @@ function describeAllInstances(ec2){
 	            ],
 	        },
 	        {
-	            Name: 'tag:StopTry',
+	            Name: 'tag:start',
 	            Values: [
-	                    'testfunction'
+	                    'StartWeekDays'
 	            ],
 	        },	    
 		]
