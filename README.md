@@ -49,7 +49,7 @@ and
 The [stop.js](stop.js) script shuts down all EC2 instances across all regions.
 
 Based on requirements cron job can be modified to shut down instances.
-Instructions are same as [Starting Instances](start.js), 
+Instructions are same as [Starting Instances](https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions#alambda-function-to-start-instances-startjs), 
 ####except for the tags.
 ######For Stop instances, I have used following Key-pair Tag:
 
