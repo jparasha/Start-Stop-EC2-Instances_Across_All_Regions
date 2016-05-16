@@ -2,7 +2,7 @@
 ######Two Lambda functions are needed to run [Start](start.js) and [Stop](stop.js) Scripts.
 
 ###a.)Lambda function to Start Instances ([start.js](start.js)):
-[The Script](Start.js) runs across all AWS regions and makes API Calls
+[The Script](start.js) runs across all AWS regions and makes API Calls
 `DescribeInstances()`
 and 
 `StartInstances()`, based on applied filters.
