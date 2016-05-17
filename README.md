@@ -33,6 +33,7 @@ and
             "Action": [
                 "ec2:DescribeInstances",
                 "ec2:StopInstances",
+                "ec2:StartInstances",
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
                 "logs:PutLogEvents"
