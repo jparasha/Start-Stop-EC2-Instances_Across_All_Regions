@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Start-stop-ec2-instances across all regions : NODEJS : Start-Stop-EC2-Instances Across All Regions Automatically using Lambda">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Start-stop-ec2-instances across all regions</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions">View on GitHub</a>
+
+          <h1 id="project_title">Start-stop-ec2-instances across all regions</h1>
+          <h2 id="project_tagline">NODEJS : Start-Stop-EC2-Instances Across All Regions Automatically using Lambda</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="start-stop-ec2-instances_across_all_regions" class="anchor" href="#start-stop-ec2-instances_across_all_regions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Start-Stop-EC2-Instances_Across_All_Regions</h1>
+
+<h6>
+<a id="two-lambda-functions-are-needed-to-run-start-and-stop-scripts" class="anchor" href="#two-lambda-functions-are-needed-to-run-start-and-stop-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Two Lambda functions are needed to run <a href="start.js">Start</a> and <a href="stop.js">Stop</a> Scripts.</h6>
+
+<hr>
+
+<h4>
+<a id="start-function--instructions" class="anchor" href="#start-function--instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Start function:  <a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/README.md#alambda-function-to-start-instances-startjs">Instructions</a>
+</h4>
+
+<ul>
+<li><p><a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/README.md#steps">Steps</a></p></li>
+<li><p><a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/README.md#tags">Tagging Instructions for Start Function</a></p></li>
+<li> <a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/README.md#required-iam-roles-for-lambda-function">IAM Roles</a>
+</li>
+</ul>
+
+<h4>
+<a id="stop-function--instructions" class="anchor" href="#stop-function--instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stop function: <a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/README.md#b-lambda-function-to-stop-instances-stopjs"> Instructions</a>
+</h4>
+
+<ul>
+<li> <a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/README.md#for-stop-instances-function-i-have-used-following-key-pair-tag">Tagging Instructions for Stop Function</a>
+</li>
+</ul>
+
+<hr>
+
+<h3>
+<a id="a--lambda-function-to-start-instances-startjs" class="anchor" href="#a--lambda-function-to-start-instances-startjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>a.)  Lambda function to Start Instances (<a href="start.js">start.js</a>):</h3>
+
+<p><a href="start.js">The Script</a> runs across all AWS regions and makes API Calls
+  <code>DescribeInstances()</code>  and   <code>StartInstances()</code>, based on applied filters.</p>
+
+<h3>
+<a id="steps" class="anchor" href="#steps" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Steps:</h3>
+
+<ul>
+<li>  Create a lambda function.</li>
+<li>  Add the script to your lambda function.</li>
+<li>  Navigate to Event Source.</li>
+<li>  Click Add new Event source and Choose Event type as - <code>Cloudwatch Events- Schedule</code>.</li>
+<li>  Add Rule name, Description and Schedule Expression as <code>cron(30 14 ? * MON-FRI *)</code> which represents Cron job Schedule to be followed MON-FRI at 14:30 UTC.</li>
+<li>  Enable the source and this script will start all instances tagged @ 14:30.</li>
+</ul>
+
+<h3>
+<a id="tags" class="anchor" href="#tags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tags:</h3>
+
+<ul>
+<li>To get your instance retrieved by the Lambda function you need to add tags to it.</li>
+<li>In this script, I've used <code>Key: 'start'</code> and <code>Value : 'StartWeekDays'</code>
+You can modify it as per your choice.</li>
+</ul>
+
+<h3>
+<a id="required-iam-roles-for-lambda-function" class="anchor" href="#required-iam-roles-for-lambda-function" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Required IAM Roles for Lambda Function:</h3>
+
+<pre><code>{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "MyStatementId",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:StopInstances",
+                "ec2:StartInstances",
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+</code></pre>
+
+<hr>
+
+<h3>
+<a id="b-lambda-function-to-stop-instances-stopjs" class="anchor" href="#b-lambda-function-to-stop-instances-stopjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>b.) Lambda function to Stop Instances (<a href="stop.js">stop.js</a>):</h3>
+
+<p>The <a href="stop.js">stop.js</a> script shuts down all EC2 instances across all regions.
+  Based on requirements cron job can be modified to shut down instances.
+  Instructions are same as <a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions#alambda-function-to-start-instances-startjs">Starting Instances</a>, 
+  except for the tags.</p>
+
+<h6>
+<a id="for-stop-instances-function-i-have-used-following-key-pair-tag" class="anchor" href="#for-stop-instances-function-i-have-used-following-key-pair-tag" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>For Stop-instances function, I have used following Key-pair Tag:</h6>
+
+<pre><code> Key: stop 
+ Value: StopWeekDays
+</code></pre>
+
+<p>Use Same IAM role for this Lambda function also.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Start-stop-ec2-instances across all regions maintained by <a href="https://github.com/jparasha">jparasha</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
