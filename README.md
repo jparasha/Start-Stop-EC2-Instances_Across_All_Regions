@@ -1,5 +1,7 @@
 # Start-Stop-EC2-Instances_Across_All_Regions
+
 ######Two Lambda functions are needed to run [Start](start.js) and [Stop](stop.js) Scripts.
+_______________________________________________________________________________________________________________________________________
 ####Start function:  [Instructions](https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/README.md#alambda-function-to-start-instances-startjs)
   -  [Steps](https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/README.md#steps)
   
@@ -11,7 +13,7 @@
   -  [Tagging Instructions for Stop Function](https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/README.md#for-stop-instances-i-have-used-following-key-pair-tag)
 
 
-
+_______________________________________________________________________________________________________________________________________
 
 ###a.)  Lambda function to Start Instances ([start.js](start.js)):
   
@@ -55,7 +57,7 @@
     ]
 }
 ```
-
+_______________________________________________________________________________________________________________________________________
 ###b.) Lambda function to Stop Instances ([stop.js](stop.js)):
   The [stop.js](stop.js) script shuts down all EC2 instances across all regions.
   Based on requirements cron job can be modified to shut down instances.
