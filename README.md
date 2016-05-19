@@ -10,7 +10,7 @@ ________________________________________________________________________________
   
 ####Stop function: [ Instructions](https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/README.md#b-lambda-function-to-stop-instances-stopjs)
 
-  -  [Tagging Instructions for Stop Function](https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/README.md#for-stop-instances-i-have-used-following-key-pair-tag)
+  -  [Tagging Instructions for Stop Function](https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/README.md#for-stop-instances-function-i-have-used-following-key-pair-tag)
 
 
 _______________________________________________________________________________________________________________________________________
