@@ -35,7 +35,7 @@
 <a id="start-stop-ec2-instances_across_all_regions" class="anchor" href="#start-stop-ec2-instances_across_all_regions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Start-Stop-EC2-Instances_Across_All_Regions</h1>
 
 <h6>
-<a id="two-lambda-functions-are-needed-to-run-start-and-stop-scripts" class="anchor" href="#two-lambda-functions-are-needed-to-run-start-and-stop-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Two Lambda functions are needed to run <a href="start.js">Start</a> and <a href="stop.js">Stop</a> Scripts.</h6>
+<a id="two-lambda-functions-are-needed-to-run-start-and-stop-scripts" class="anchor" href="#two-lambda-functions-are-needed-to-run-start-and-stop-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Two Lambda functions are needed to run <a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/start.js">Start</a> and <a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/stop.js">Stop</a> Scripts.</h6>
 
 <hr>
 
@@ -62,9 +62,9 @@
 <hr>
 
 <h3>
-<a id="a--lambda-function-to-start-instances-startjs" class="anchor" href="#a--lambda-function-to-start-instances-startjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>a.)  Lambda function to Start Instances (<a href="start.js">start.js</a>):</h3>
+<a id="a--lambda-function-to-start-instances-startjs" class="anchor" href="#a--lambda-function-to-start-instances-startjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>a.)  Lambda function to Start Instances (<a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/start.js">start.js</a>):</h3>
 
-<p><a href="start.js">The Script</a> runs across all AWS regions and makes API Calls
+<p><a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/start.js">The Script</a> runs across all AWS regions and makes API Calls
   <code>DescribeInstances()</code>  and   <code>StartInstances()</code>, based on applied filters.</p>
 
 <h3>
@@ -116,9 +116,9 @@ You can modify it as per your choice.</li>
 <hr>
 
 <h3>
-<a id="b-lambda-function-to-stop-instances-stopjs" class="anchor" href="#b-lambda-function-to-stop-instances-stopjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>b.) Lambda function to Stop Instances (<a href="stop.js">stop.js</a>):</h3>
+<a id="b-lambda-function-to-stop-instances-stopjs" class="anchor" href="#b-lambda-function-to-stop-instances-stopjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>b.) Lambda function to Stop Instances (<a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/stop.js">stop.js</a>):</h3>
 
-<p>The <a href="stop.js">stop.js</a> script shuts down all EC2 instances across all regions.
+<p>The <a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions/blob/master/stop.js">stop.js</a> script shuts down all EC2 instances across all regions.
   Based on requirements cron job can be modified to shut down instances.
   Instructions are same as <a href="https://github.com/jparasha/Start-Stop-EC2-Instances_Across_All_Regions#alambda-function-to-start-instances-startjs">Starting Instances</a>, 
   except for the tags.</p>
